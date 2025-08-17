@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center mb-4">
+    <h2>Internal Team Analytics</h2>
+    <p class="lead">Tracking Elyx team resource allocation for Rohan's journey.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                Estimated Hours Logged per Specialist
+            </div>
+            <div class="card-body">
+                <canvas id="hoursChart"></canvas>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    // --- Data from Flask (defensive default) ---
+    const analyticsData = {{ analytics_data|default({'labels': [], 'values': []})|tojson }};
+
+        // --- Hours per Specialist Chart ---
+        const canvas = document.getElementById('hoursChart');
+        if (!canvas) {
+            console.warn('hoursChart canvas not found; skipping chart render.');
+            return;
+        }
+        const ctx = canvas.getContext('2d');
+        const hoursChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: analyticsData.labels,
+                datasets: [{
+                    label: 'Estimated Hours',
+                    data: analyticsData.values,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)',
+                        'rgba(75, 192, 192, 0.5)',
+                        'rgba(153, 102, 255, 0.5)',
+                        'rgba(255, 159, 64, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

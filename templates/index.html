@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center mb-4">
+    <h2>Member Journey Dashboard</h2>
+    <p class="lead">Visualizing key decisions and progress for Rohan Patel.</p>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <h5 class="card-title">Latest ApoB Level</h5>
+                <p class="card-text kpi-value">{{ kpis.apob }}</p>
+                <p class="card-text"><small class="text-muted">Updated: June 27, 2025</small></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <h5 class="card-title">Avg. Weekly HRV Trend</h5>
+                <p class="card-text kpi-value text-success">{{ kpis.hrv_trend }}</p>
+                <p class="card-text"><small class="text-muted">Since Program Start</small></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <h5 class="card-title">Current Exercise Focus</h5>
+                <p class="card-text kpi-value">{{ kpis.exercise_focus }}</p>
+                <p class="card-text"><small class="text-muted">Updated Bi-Weekly</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Journey Timeline (Click on key events <span class="material-icons" style="font-size: 1rem; color: #6f42c1;">stars</span> to trace the "why")
+    </div>
+    <div class="card-body">
+        <div id="timeline"></div>
+    </div>
+</div>
+
+<div class="modal fade" id="traceWhyModal" tabindex="-1" aria-labelledby="traceWhyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="traceWhyModalLabel">Trace the Why</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="traceWhyModalBody">
+                <!-- Dynamic content will be injected here -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // --- Data from Flask ---
+        document.querySelectorAll('.why-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const rationaleDiv = this.nextElementSibling;
+      const rationale = this.getAttribute('data-rationale');
+      if (rationaleDiv.style.display === "none") {
+        rationaleDiv.textContent = rationale;
+        rationaleDiv.style.display = "block";
+        this.textContent = "Hide Why";
+      } else {
+        rationaleDiv.style.display = "none";
+        this.textContent = "Why?";
+      }
+    });
+  });
+        const timelineEvents = {{ timeline_events|tojson }};
+        const traceStories = {{ trace_stories|tojson }};
+        const timelineKpis = {{ timeline_kpis|tojson }};
+        const traceModal = new bootstrap.Modal(document.getElementById('traceWhyModal'));
+
+        // --- Create a DataSet (allows two-way data binding) ---
+        const items = new vis.DataSet(timelineEvents);
+
+        // --- Configuration for the Timeline ---
+        const options = {
+            stack: true,
+            maxHeight: '400px',
+            zoomMin: 1000 * 60 * 60 * 24 * 7, // One week
+            zoomMax: 1000 * 60 * 60 * 24 * 31 * 12 // One year
+        };
+
+        // --- Create a Timeline ---
+        const timeline = new vis.Timeline(document.getElementById('timeline'), items, options);
+        
+        // Function to update KPI cards based on selected date
+        function updateKPIs(selectedDate) {
+            // Find the most recent KPI data for the selected date
+            let closestDate = null;
+            let closestKpis = null;
+            
+            for (const [date, kpis] of Object.entries(timelineKpis)) {
+                if (selectedDate >= date) {
+                    if (!closestDate || date > closestDate) {
+                        closestDate = date;
+                        closestKpis = kpis;
+                    }
+                }
+            }
+            
+            if (closestKpis) {
+                // Update the KPI cards using more robust selectors
+                const kpiCards = document.querySelectorAll('.card-body');
+                kpiCards.forEach(card => {
+                    const title = card.querySelector('.card-title');
+                    const value = card.querySelector('.kpi-value');
+                    
+                    if (title && value) {
+                        if (title.textContent.includes('ApoB')) {
+                            value.textContent = closestKpis.apob;
+                        } else if (title.textContent.includes('HRV')) {
+                            value.textContent = closestKpis.hrv_trend;
+                        } else if (title.textContent.includes('Exercise')) {
+                            value.textContent = closestKpis.exercise_focus;
+                        }
+                    }
+                });
+                
+                // Update date displays
+                const dateElements = document.querySelectorAll('.text-muted');
+                dateElements.forEach(elem => {
+                    if (elem.textContent.includes('Updated:') || elem.textContent.includes('As of:')) {
+                        elem.innerHTML = `<small class="text-muted">As of: ${new Date(closestDate).toLocaleDateString()}</small>`;
+                    }
+                });
+            }
+        }
+
+        // --- "Trace the Why" Click Handler ---
+        timeline.on('select', function(properties) {
+            const selectedIds = properties.items;
+            if (selectedIds.length > 0) {
+                const selectedItem = items.get(selectedIds[0]);
+                
+                // Update KPIs based on selected event date
+                if (selectedItem && selectedItem.start) {
+                    const eventDate = selectedItem.start.split('T')[0]; // Get date part only
+                    updateKPIs(eventDate);
+                }
+                
+                if (selectedItem && selectedItem.trace_id && traceStories[selectedItem.trace_id]) {
+                    const story = traceStories[selectedItem.trace_id];
+                    const eventDate = selectedItem.start ? (new Date(selectedItem.start)).toLocaleDateString() : '';
+                    
+                    // Build the modal content
+                    document.getElementById('traceWhyModalLabel').innerText = story.title + (eventDate ? ' (' + eventDate + ')' : '');
+                    const modalBody = document.getElementById('traceWhyModalBody');
+                    
+                    let storyHTML = '<ul class="list-group list-group-flush">';
+story.steps.forEach((step, index) => {
+    storyHTML += `
+        <li class="list-group-item">
+            <div><span class="material-icons me-3">${step.icon}</span> ${step.text}</div>
+    `;
+    // Only add the Why button and rationale to the answer (usually the last step)
+    if (index === story.steps.length - 1) {
+        storyHTML += `
+            <button class="why-btn btn btn-sm btn-outline-secondary mt-2"
+                data-rationale="${step.rationale ? step.rationale.replace(/"/g, '&quot;') : ''}">
+                Why?
+            </button>
+            <div class="rationale" style="display:none; margin-top:5px; color:#555;"></div>
+        `;
+    }
+    storyHTML += '</li>';
+    if(index < story.steps.length - 1) {
+        storyHTML += '<div class="text-center"><span class="material-icons">arrow_downward</span></div>';
+    }
+});
+storyHTML += '</ul>';
+modalBody.innerHTML = storyHTML;
+
+// Attach event listeners for "Why" buttons
+modalBody.querySelectorAll('.why-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        const rationaleDiv = this.nextElementSibling;
+        const rationale = this.getAttribute('data-rationale');
+        if (rationaleDiv.style.display === "none") {
+            rationaleDiv.textContent = rationale;
+            rationaleDiv.style.display = "block";
+            this.textContent = "Hide Why";
+        } else {
+            rationaleDiv.style.display = "none";
+            this.textContent = "Why?";
+        }
+    });
+});
+
+                    traceModal.show();
+                }
+            }
+        });
+        
+        // Handle timeline click (for updating KPIs when clicking on timeline background)
+        timeline.on('click', function(properties) {
+            if (properties.time) {
+                const clickedDate = new Date(properties.time).toISOString().split('T')[0];
+                updateKPIs(clickedDate);
+            }
+        });
+    });
+</script>
+{% endblock %}
