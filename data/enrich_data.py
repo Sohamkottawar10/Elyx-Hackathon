@@ -3,7 +3,7 @@ import os
 import google.generativeai as genai
 import time
 
-GOOGLE_API_KEY = 'AIzaSyDHqCKMOPFAhr_zD4wuWzVGl1Pv6qF0glQ'
+GOOGLE_API_KEY = 'AIzaSyDxggMW9iBYvY02t1MgchGoqTIEJg510eg'
 
 INPUT_FILE = 'parsed_chat_log.json'
 OUTPUT_FILE = 'enriched_chat_log.json'
@@ -36,15 +36,38 @@ You are a sophisticated data enrichment AI for Elyx, a preventative healthcare s
 """
 
 def enrich_data():
-    # Load the parsed data
-    with open(INPUT_FILE, 'r') as f:
-        messages = json.load(f)
+    # Load the existing enriched data if it exists, otherwise load the original data
+    if os.path.exists(OUTPUT_FILE):
+        with open(OUTPUT_FILE, 'r') as f:
+            messages = json.load(f)
+        print(f"Loaded existing enriched data with {len(messages)} messages.")
+    else:
+        with open(INPUT_FILE, 'r') as f:
+            messages = json.load(f)
+        print(f"Loaded original data with {len(messages)} messages.")
 
-    enriched_messages = []
-    
-    print(f"Starting enrichment for {len(messages)} messages...")
-
+    # Check which messages need categorization (starting from id=94)
+    uncategorized_indices = []
     for i, message in enumerate(messages):
+        # Only process messages with id >= 94
+        if message.get('id', 0) >= 94:
+            # Check if the message lacks any of the required tags or has "Uncategorized" topic
+            if ('topic' not in message or 
+                message.get('topic') == 'Uncategorized' or
+                'initiator' not in message or 
+                'event_link_rationale' not in message or 
+                'linked_event_id' not in message):
+                uncategorized_indices.append(i)
+    
+    print(f"Found {len(uncategorized_indices)} uncategorized messages to process...")
+    
+    if len(uncategorized_indices) == 0:
+        print("All messages are already categorized!")
+        return
+
+    for count, i in enumerate(uncategorized_indices, 1):
+        message = messages[i]
+        
         # Create context window
         start_index = max(0, i - HISTORY_WINDOW)
         history = messages[start_index:i]
@@ -59,7 +82,7 @@ def enrich_data():
         )
 
         try:
-            print(f"Processing message {message['id']} of {len(messages)}...")
+            print(f"Processing message {message['id']} ({count} of {len(uncategorized_indices)} uncategorized messages, index {i + 1} in dataset)...")
             response = model.generate_content(prompt)
             
             # Clean up the response to ensure it's valid JSON
@@ -68,28 +91,32 @@ def enrich_data():
             # Parse the JSON response from the LLM
             tags = json.loads(response_text)
             
-            # Add the new tags to the original message object
-            message.update(tags)
+            # Update only the necessary fields in the existing message object
+            messages[i].update(tags)
             
         except Exception as e:
             print(f"Error processing message {message['id']}: {e}")
             print("Could not add tags. Moving to the next message.")
             # Optionally add empty tags on error
-            message.update({
+            messages[i].update({
                 "topic": "Uncategorized",
                 "initiator": False,
                 "event_link_rationale": None,
                 "linked_event_id": None
             })
         
-        enriched_messages.append(message)
+        # Save progress periodically (every 10 messages)
+        if count % 10 == 0:
+            with open(OUTPUT_FILE, 'w') as f:
+                json.dump(messages, f, indent=4)
+            print(f"Progress saved after processing {count} uncategorized messages")
         
         # To avoid hitting API rate limits
         time.sleep(1) 
 
     # Save the final enriched data
     with open(OUTPUT_FILE, 'w') as f:
-        json.dump(enriched_messages, f, indent=4)
+        json.dump(messages, f, indent=4)
         
     print(f"\nSuccessfully enriched data and saved to '{OUTPUT_FILE}'!")
 

@@ -38,25 +38,27 @@
 
 <div class="card">
     <div class="card-header">
-        Journey Timeline (Click on key events <span class="material-icons" style="font-size: 1rem; color: #6f42c1;">stars</span> to trace the "why")
+        Journey Timeline (Click on any event for a detailed summary)
     </div>
     <div class="card-body">
         <div id="timeline"></div>
     </div>
 </div>
 
-<div class="modal fade" id="traceWhyModal" tabindex="-1" aria-labelledby="traceWhyModalLabel" aria-hidden="true">
+<!-- Reusable Modal Structure -->
+<div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="traceWhyModalLabel">Trace the Why</h5>
+                <h5 class="modal-title" id="eventModalLabel">Event Details</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="traceWhyModalBody">
-                <!-- Dynamic content will be injected here -->
+            <div class="modal-body" id="eventModalBody">
+                <!-- Dynamic content will be injected here by JavaScript -->
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
 
 
@@ -64,45 +66,33 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         // --- Data from Flask ---
-        document.querySelectorAll('.why-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      const rationaleDiv = this.nextElementSibling;
-      const rationale = this.getAttribute('data-rationale');
-      if (rationaleDiv.style.display === "none") {
-        rationaleDiv.textContent = rationale;
-        rationaleDiv.style.display = "block";
-        this.textContent = "Hide Why";
-      } else {
-        rationaleDiv.style.display = "none";
-        this.textContent = "Why?";
-      }
-    });
-  });
-        const timelineEvents = {{ timeline_events|tojson }};
-        const traceStories = {{ trace_stories|tojson }};
-        const timelineKpis = {{ timeline_kpis|tojson }};
-        const traceModal = new bootstrap.Modal(document.getElementById('traceWhyModal'));
+        const timelineEvents = {{ events|tojson | safe }};
+        const timelineGroups = {{ groups|tojson | safe }};
+        const timelineKpis = {{ timeline_kpis|tojson | safe }};
+        const eventModal = new bootstrap.Modal(document.getElementById('eventModal'));
 
-        // --- Create a DataSet (allows two-way data binding) ---
+        // --- Create DataSets for items and groups ---
         const items = new vis.DataSet(timelineEvents);
+        const groups = new vis.DataSet(timelineGroups);
 
         // --- Configuration for the Timeline ---
         const options = {
-            stack: true,
-            maxHeight: '400px',
-            zoomMin: 1000 * 60 * 60 * 24 * 7, // One week
-            zoomMax: 1000 * 60 * 60 * 24 * 31 * 12 // One year
+            // UI/UX Enhancements for better navigation
+            maxHeight: '500px', // Increased height to accommodate scrollbar
+            verticalScroll: true, // Allows scrolling vertically if lanes overflow
+            horizontalScroll: true, // ADDS THE HORIZONTAL SCROLLBAR (SLIDER)
+            zoomMin: 1000 * 60 * 60 * 24 * 7, // Set minimum zoom to one week for closer inspection
+            zoomMax: 1000 * 60 * 60 * 24 * 31 * 12, // One year
+            zoomable: true,
+            moveable: true
         };
 
-        // --- Create a Timeline ---
-        const timeline = new vis.Timeline(document.getElementById('timeline'), items, options);
+        // --- Create a Timeline with Groups ---
+        const timeline = new vis.Timeline(document.getElementById('timeline'), items, groups, options);
         
-        // Function to update KPI cards based on selected date
         function updateKPIs(selectedDate) {
-            // Find the most recent KPI data for the selected date
             let closestDate = null;
             let closestKpis = null;
-            
             for (const [date, kpis] of Object.entries(timelineKpis)) {
                 if (selectedDate >= date) {
                     if (!closestDate || date > closestDate) {
@@ -111,105 +101,187 @@
                     }
                 }
             }
-            
-            if (closestKpis) {
-                // Update the KPI cards using more robust selectors
+            if (closestKpis && closestDate) {
+                // Format the date for display
+                const formattedDate = new Date(closestDate).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
                 const kpiCards = document.querySelectorAll('.card-body');
                 kpiCards.forEach(card => {
                     const title = card.querySelector('.card-title');
                     const value = card.querySelector('.kpi-value');
+                    const dateElement = card.querySelector('.text-muted small, small.text-muted');
                     
                     if (title && value) {
                         if (title.textContent.includes('ApoB')) {
                             value.textContent = closestKpis.apob;
-                        } else if (title.textContent.includes('HRV')) {
+                            // Update the date for ApoB card
+                            if (dateElement) {
+                                dateElement.textContent = `Updated: ${formattedDate}`;
+                            }
+                        }
+                        else if (title.textContent.includes('HRV')) {
                             value.textContent = closestKpis.hrv_trend;
-                        } else if (title.textContent.includes('Exercise')) {
+                        }
+                        else if (title.textContent.includes('Exercise')) {
                             value.textContent = closestKpis.exercise_focus;
                         }
-                    }
-                });
-                
-                // Update date displays
-                const dateElements = document.querySelectorAll('.text-muted');
-                dateElements.forEach(elem => {
-                    if (elem.textContent.includes('Updated:') || elem.textContent.includes('As of:')) {
-                        elem.innerHTML = `<small class="text-muted">As of: ${new Date(closestDate).toLocaleDateString()}</small>`;
                     }
                 });
             }
         }
 
-        // --- "Trace the Why" Click Handler ---
+        // --- DYNAMIC MODAL CONTENT BUILDER ---
+        // --- DYNAMIC MODAL CONTENT BUILDER ---
+        function buildModalContent(data) {
+            const modalTitle = document.getElementById('eventModalLabel');
+            const modalBody = document.getElementById('eventModalBody');
+            let contentHTML = '';
+
+            const icons = {
+                "Onboarding": "flag", 
+                "Medical Decision": "science", 
+                "Travel": "flight",
+                "Nutrition": "restaurant", 
+                "Exercise": "fitness_center", 
+                "Setback": "warning",
+                "Follow-up": "trending_up",
+                "Data Analysis": "analytics",
+                "Uncategorized": "info"
+            };
+            modalTitle.innerHTML = `<span class="material-icons">${icons[data.type] || 'event'}</span> ${data.title}`;
+
+            switch(data.type) {
+                case "Onboarding":
+                    contentHTML = `
+                        <h6>The Starting Line</h6>
+                        <p>This marks the beginning of the journey, establishing the initial health baseline.</p>
+                        <div class="card"><div class="card-body">
+                            <strong>Member's Stated Goal:</strong> ${data.member_goal}
+                        </div></div>
+                        <h6>Key Initial Biomarkers</h6>
+                        <ul class="list-group">
+                            ${data.kpis.map(k => `<li class="list-group-item d-flex justify-content-between align-items-center">${k.label} <strong>${k.value}</strong></li>`).join('')}
+                        </ul>`;
+                    break;
+                case "Medical Decision":
+                    contentHTML = `
+                        <h6>Key Data Point Driving Decision</h6>
+                        <div class="alert alert-primary text-center"><h4>${data.key_data_point}</h4></div>
+                        <h6>Trace the "Why"</h6>
+                        ${data.trace_chain.map(step => `
+                            <div class="trace-step">
+                                <span class="material-icons trace-icon">source</span>
+                                <strong>${step.sender_name} (${step.sender_role}):</strong>
+                                <p class="m-0"><em>"${step.message}"</em></p>
+                            </div>
+                        `).join('')}
+                    `;
+                    break;
+                case "Nutrition":
+                case "Exercise":
+                    contentHTML = `
+                        <h6>Plan Change Details</h6>
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                <strong>BEFORE</strong>
+                                <p>${data.before_after.before}</p>
+                            </div>
+                            <div class="col-6 text-center">
+                                <strong>AFTER</strong>
+                                <p>${data.before_after.after}</p>
+                            </div>
+                        </div>
+                        <h6>Rationale for Change</h6>
+                        <div class="card"><div class="card-body">
+                            <em>"${data.rationale}"</em>
+                        </div></div>`;
+                    break;
+                case "Travel":
+                    contentHTML = `
+                        <h6>Biometric Impact of Travel</h6>
+                        <div class="row text-center">
+                            <div class="col-6">
+                                <div class="alert alert-warning">
+                                    <div>HRV Impact</div>
+                                    <div class="h4">${data.impact.hrv}</div>
+                                </div>
+                            </div>
+                             <div class="col-6">
+                                <div class="alert alert-warning">
+                                    <div>Sleep Impact</div>
+                                    <div class="h4">${data.impact.sleep}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <h6>Team's Protocol</h6>
+                        <div class="card"><div class="card-body">
+                            <em>"${data.protocol_summary}"</em>
+                        </div></div>`;
+                    break;
+                case "Setback":
+                     contentHTML = `
+                        <h6>The Problem</h6>
+                        <div class="card border-danger"><div class="card-body">
+                           <em>"${data.problem}"</em><br><small>- Rohan Patel</small>
+                        </div></div>
+                        <h6>The Solution</h6>
+                        <div class="card border-success mt-2"><div class="card-body">
+                           <em>"${data.solution}"</em>
+                        </div></div>
+                        <h6>Internal Cost to Resolve</h6>
+                        <div class="alert alert-secondary text-center mt-2">
+                           Team time dedicated to resolving this friction point: <strong>${data.internal_cost}</strong>
+                        </div>`;
+                    break;
+                case "Follow-up":
+                    contentHTML = `
+                        <h6>Progress Update</h6>
+                        <div class="card"><div class="card-body">
+                            <em>"${data.update_content}"</em>
+                            <br><small>- ${data.sender_info}</small>
+                        </div></div>`;
+                    break;
+                case "Data Analysis":
+                    contentHTML = `
+                        <h6>Data Insights</h6>
+                        <div class="card border-info"><div class="card-body">
+                            <em>"${data.analysis_content}"</em>
+                            <br><small>- ${data.analyst}</small>
+                        </div></div>`;
+                    break;
+                case "Uncategorized":
+                    contentHTML = `
+                        <h6>General Update</h6>
+                        <div class="card"><div class="card-body">
+                            <em>"${data.general_content}"</em>
+                            <br><small>- ${data.sender_info}</small>
+                        </div></div>`;
+                    break;
+            }
+            modalBody.innerHTML = contentHTML;
+        }
+
         timeline.on('select', function(properties) {
             const selectedIds = properties.items;
             if (selectedIds.length > 0) {
                 const selectedItem = items.get(selectedIds[0]);
-                
-                // Update KPIs based on selected event date
                 if (selectedItem && selectedItem.start) {
-                    const eventDate = selectedItem.start.split('T')[0]; // Get date part only
-                    updateKPIs(eventDate);
+                    updateKPIs(selectedItem.start.split('T')[0]);
                 }
-                
-                if (selectedItem && selectedItem.trace_id && traceStories[selectedItem.trace_id]) {
-                    const story = traceStories[selectedItem.trace_id];
-                    const eventDate = selectedItem.start ? (new Date(selectedItem.start)).toLocaleDateString() : '';
-                    
-                    // Build the modal content
-                    document.getElementById('traceWhyModalLabel').innerText = story.title + (eventDate ? ' (' + eventDate + ')' : '');
-                    const modalBody = document.getElementById('traceWhyModalBody');
-                    
-                    let storyHTML = '<ul class="list-group list-group-flush">';
-story.steps.forEach((step, index) => {
-    storyHTML += `
-        <li class="list-group-item">
-            <div><span class="material-icons me-3">${step.icon}</span> ${step.text}</div>
-    `;
-    // Only add the Why button and rationale to the answer (usually the last step)
-    if (index === story.steps.length - 1) {
-        storyHTML += `
-            <button class="why-btn btn btn-sm btn-outline-secondary mt-2"
-                data-rationale="${step.rationale ? step.rationale.replace(/"/g, '&quot;') : ''}">
-                Why?
-            </button>
-            <div class="rationale" style="display:none; margin-top:5px; color:#555;"></div>
-        `;
-    }
-    storyHTML += '</li>';
-    if(index < story.steps.length - 1) {
-        storyHTML += '<div class="text-center"><span class="material-icons">arrow_downward</span></div>';
-    }
-});
-storyHTML += '</ul>';
-modalBody.innerHTML = storyHTML;
-
-// Attach event listeners for "Why" buttons
-modalBody.querySelectorAll('.why-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        const rationaleDiv = this.nextElementSibling;
-        const rationale = this.getAttribute('data-rationale');
-        if (rationaleDiv.style.display === "none") {
-            rationaleDiv.textContent = rationale;
-            rationaleDiv.style.display = "block";
-            this.textContent = "Hide Why";
-        } else {
-            rationaleDiv.style.display = "none";
-            this.textContent = "Why?";
-        }
-    });
-});
-
-                    traceModal.show();
+                if (selectedItem && selectedItem.modal_data) {
+                    buildModalContent(selectedItem.modal_data);
+                    eventModal.show();
                 }
             }
         });
-        
-        // Handle timeline click (for updating KPIs when clicking on timeline background)
+
         timeline.on('click', function(properties) {
             if (properties.time) {
-                const clickedDate = new Date(properties.time).toISOString().split('T')[0];
-                updateKPIs(clickedDate);
+                updateKPIs(new Date(properties.time).toISOString().split('T')[0]);
             }
         });
     });

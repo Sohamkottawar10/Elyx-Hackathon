@@ -192,10 +192,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "Yes. 8 PM for 3 people.",
-        "topic": "Logistics",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to Ruby's offer to make a reservation in message 17. Rohan confirms his acceptance of the offer and provides the necessary details.",
-        "linked_event_id": 17
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 19,
@@ -203,11 +203,10 @@
         "sender_name": "Ruby",
         "sender_role": "Concierge",
         "message": "You are confirmed. The reservation is in your calendar.",
-        "topic": "Logistics",
+        "topic": "Uncategorized",
         "initiator": false,
-        "linked_event_id": 18,
-        "event_link_rationale": "This message is a direct confirmation of the restaurant reservation discussed and agreed upon in message with id 18.",
-        "additional_tags": []
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 20,
@@ -217,9 +216,8 @@
         "message": "The hotel gym is quite limited. Is there a simple bodyweight routine I can do in my room for 20 minutes to maintain some consistency?",
         "topic": "Exercise",
         "initiator": true,
-        "linked_event_id": null,
         "event_link_rationale": null,
-        "additional_tags": []
+        "linked_event_id": null
     },
     {
         "id": 21,
@@ -227,11 +225,10 @@
         "sender_name": "Rachel",
         "sender_role": "PT",
         "message": "Absolutely. Consistency during travel is key. I've just sent you a 20-minute travel routine via our app. It focuses on mobility to counteract the effects of sitting on the plane and core stability. No equipment needed. Let me know how it feels.",
-        "topic": "Exercise",
+        "topic": "Uncategorized",
         "initiator": false,
-        "linked_event_id": 20,
-        "event_link_rationale": "This message directly responds to Rohan's request in message ID 20 for a simple bodyweight routine suitable for a hotel room.  It provides a specific routine.",
-        "additional_tags": []
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 22,
@@ -239,11 +236,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "Back in Singapore. The travel protocol seemed to help. I don't feel as \"off\" as usual. Advik, you should be able to see the HRV data now.",
-        "topic": "Follow-up",
-        "initiator": true,
-        "linked_event_id": 15,
-        "event_link_rationale": "This message is a follow-up to Advik's message (ID 15) which suggested a protocol to minimize the impact of travel on Rohan's system. Rohan reports back on the effectiveness of the protocol and mentions the availability of HRV data for analysis.",
-        "additional_tags": []
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 23,
@@ -251,11 +247,10 @@
         "sender_name": "Advik",
         "sender_role": "Performance Scientist",
         "message": "The data is already showing a faster-than-usual rebound in your HRV. It's a positive signal. This suggests your system is responsive to these small interventions. We'll build on this.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to Rohan's message (ID 22), where he mentions that his HRV data is available for analysis after his return from travel. Advik's message provides an initial analysis of that data, showing a positive outcome.",
-        "linked_event_id": 22,
-        "additional_tags": []
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 24,
@@ -263,10 +258,10 @@
         "sender_name": "Ruby",
         "sender_role": "Concierge",
         "message": "A quick update, Rohan. The last of your advanced biomarker results have come in. Dr. Warren is now beginning his comprehensive analysis of the full panel. We'll be in touch to schedule a call to discuss his findings once he's completed his review.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly follows up on message ID 9, which informed Rohan about the timelines for receiving his biomarker results.  Message ID 24 provides an update on the arrival of the final results and the next steps in the process.",
-        "linked_event_id": 9
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 25,
@@ -274,9 +269,9 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "I was listening to a podcast about ApoE4 and its link to Alzheimer's. Was this included in my panel?",
-        "topic": "Member Query",
-        "initiator": true,
-        "event_link_rationale": "This message introduces a new topic, a query about the inclusion of ApoE4 testing in Rohan's biomarker panel, not directly related to any previous messages.",
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
         "linked_event_id": null
     },
     {
@@ -285,10 +280,10 @@
         "sender_name": "Dr. Warren",
         "sender_role": "Medical Strategist",
         "message": "Dr. Warren here. Yes, Rohan, the ApoE4 genetic marker was part of the panel we ran. It's a critical piece of data for a long-term health strategy. I will cover your result and what it means in detail during our review call. It's an important topic.",
-        "topic": "Member Query",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to Rohan's query in message ID 25 about the inclusion of ApoE4 testing in his biomarker panel. Dr. Warren confirms its inclusion and promises further discussion during a scheduled review call.",
-        "linked_event_id": 25
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 27,
@@ -296,10 +291,10 @@
         "sender_name": "Rachel",
         "sender_role": "PT",
         "message": "Good morning Rohan. I'm Rachel, your physiotherapist. Following up on your back pain during your last flight, I'd like to establish a baseline movement routine to build resilience against the effects of prolonged sitting. Based on your profile, you have a 20-minute morning routine. Could you describe what that entails?",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message follows up on Rohan's mention of back pain experienced during his flight to London (message ID 14).  Rachel, the physiotherapist, aims to create a preventative routine.",
-        "linked_event_id": 14
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 28,
@@ -307,10 +302,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "It's not very structured. Mostly some light stretching and a few bodyweight squats. I'm open to suggestions, but it must be efficient.",
-        "topic": "Exercise",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to Rachel's inquiry (message ID 27) about Rohan's existing morning routine.  Rohan describes his current routine and expresses openness to a more structured approach.",
-        "linked_event_id": 27
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 29,
@@ -318,10 +313,10 @@
         "sender_name": "Rachel",
         "sender_role": "PT",
         "message": "Efficiency is the goal. I'll design a 20-minute routine focusing on hip mobility and core stability, which will be crucial for managing the physical stress of travel. I'll send it over via our app, complete with video guides. We'll plan to adjust it in two weeks based on your progress.",
-        "topic": "Exercise",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to Rohan's message (ID 28), where he describes his current exercise routine as unstructured and expresses openness to suggestions. Rachel's message proposes a structured routine designed to address his needs.",
-        "linked_event_id": 28
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 30,
@@ -329,8 +324,8 @@
         "sender_name": "Carla",
         "sender_role": "Nutritionist",
         "message": "Hi Rohan, I'm Carla, the team's nutritionist. I've reviewed your 3-day food log. Thank you for the detail. A quick initial observation: your caffeine intake is clustered in the afternoon. This could be impacting your sleep quality and HRV. An easy experiment would be to shift your last coffee of the day to before 2 PM.",
-        "topic": "Nutrition",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -340,10 +335,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "I need the afternoon coffee for focus during calls with the US. I'm not willing to give that up.",
-        "topic": "Nutrition",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to Carla's suggestion (message ID 30) to shift his afternoon caffeine intake. Rohan explains his need for afternoon coffee to maintain focus during business calls.",
-        "linked_event_id": 30
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 32,
@@ -351,10 +346,10 @@
         "sender_name": "Carla",
         "sender_role": "Nutritionist",
         "message": "Understood completely. This is a perfect example of a logistical constraint. We won't remove it. Instead, let's try a swap: could you try green tea instead of coffee for your last caffeinated drink? It has less caffeine and contains L-theanine, which can promote focus without the same level of nervous system stimulation. This is a classic 50% adjustment \u2013 we find a solution that works within your constraints.",
-        "topic": "Nutrition",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to Rohan's explanation in message ID 31 regarding his need for afternoon coffee. Carla acknowledges his constraint and proposes an alternative solution: substituting green tea for his last coffee of the day.",
-        "linked_event_id": 31
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 33,
@@ -527,10 +522,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "What is ApoB? I was under the impression that LDL was the primary number to watch for heart disease risk, given my family history.",
-        "topic": "Medical Decision",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly follows message ID 47, where Dr. Warren introduced the concept of ApoB and its elevated level in Rohan's blood panel. Rohan's message seeks clarification on the meaning and significance of ApoB in relation to his existing understanding of LDL and family history of heart disease.",
-        "linked_event_id": 47
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 49,
@@ -549,10 +544,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "I see. The goal, then, is to lower the particle count, not just the total cholesterol. What is the plan of action?",
-        "topic": "Medical Decision",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly follows Dr. Warren's explanation of ApoB in message ID 49. Rohan's message shows understanding of the explanation and requests the next steps in addressing his elevated ApoB levels.",
-        "linked_event_id": 49
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 51,
@@ -571,8 +566,8 @@
         "sender_name": "Ruby",
         "sender_role": "Concierge",
         "message": "Hi Rohan, just for your visibility on the background work, Dr. Warren has logged 2 hours for the comprehensive analysis of your blood panel and for preparing his summary. The rest of the team is now dedicating time to building the initial intervention plan based on his findings.",
-        "topic": "Internal Metrics",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -582,10 +577,10 @@
         "sender_name": "Advik",
         "sender_role": "Performance Scientist",
         "message": "Weekly Report: Rohan, your HRV has remained stable this week, showing good adaptation to your baseline routine on non-travel days. The key takeaway from Dr. Warren's analysis is that we now have a specific biomarker, ApoB, to target. Our work on sleep, stress, and exercise will all be crucial in supporting the new plan to lower it.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message follows the previous updates on Rohan's health data and integrates the recent findings from Dr. Warren's blood panel analysis (messages 47-52). Advik's report acknowledges the stable HRV and highlights the importance of ongoing efforts in sleep, stress management, and exercise in conjunction with the new medical strategy to address the elevated ApoB levels.",
-        "linked_event_id": 52
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 54,
@@ -593,9 +588,9 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "Team, I'm flying to Seoul for the week. With this new ApoB information in mind, I'm more conscious of my food choices. Korean BBQ is on the agenda for a client dinner. Any advice on how to navigate that?",
-        "topic": "Nutrition",
-        "initiator": true,
-        "event_link_rationale": "This message is a new query regarding nutritional choices while traveling, specifically concerning an upcoming Korean BBQ dinner.  While related to the ongoing discussion about Rohan's health, it's a new topic not directly prompted by the previous message.",
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
         "linked_event_id": null
     },
     {
@@ -604,10 +599,10 @@
         "sender_name": "Carla",
         "sender_role": "Nutritionist",
         "message": "Great question. You don't have to avoid it. A few strategic choices can make a big difference: 1) Prioritize lean, unmarinated meats like brisket or tenderloin over marinated ribs. 2) Fill half your plate with the vegetable side dishes (banchan). 3) Skip the rice and ask for extra lettuce to use as wraps. This increases fiber and reduces saturated fat intake.",
-        "topic": "Nutrition",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to message ID 54, where Rohan Patel asks for nutritional advice on navigating a Korean BBQ dinner while traveling to Seoul. Carla's message provides specific recommendations on food choices to minimize negative health impacts.",
-        "linked_event_id": 54
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 56,
@@ -615,8 +610,8 @@
         "sender_name": "Rachel",
         "sender_role": "PT",
         "message": "Hi Rohan, checking in. It's been two weeks, so I'm updating your mobility plan. I've added a progression to the hip exercises and a new movement for shoulder mobility. Continue using the 15-minute \"Travel Express\" routine while you're in Seoul.",
-        "topic": "Follow-up",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -626,10 +621,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "Acknowledged. The travel routine is working well.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to message ID 56, where Rachel updates Rohan's mobility plan and specifically mentions the continued use of the \"Travel Express\" routine. Rohan's message acknowledges this and confirms the routine's effectiveness.",
-        "linked_event_id": 56
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 58,
@@ -648,10 +643,10 @@
         "sender_name": "Dr. Warren",
         "sender_role": "Medical Strategist",
         "message": "There's a significant positive overlap. The same lifestyle interventions that lower ApoB\u2014specifically, regular aerobic exercise and a diet low in processed foods and sodium\u2014are also first-line treatments for managing blood pressure. By targeting ApoB, we will be concurrently addressing your blood pressure.",
-        "topic": "Medical Decision",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to message ID 58 where Rohan Patel asks about the plan to lower ApoB and its effect on his borderline high blood pressure. Dr. Warren's message explains that the interventions for lowering ApoB will also help manage his blood pressure.",
-        "linked_event_id": 58
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 60,
@@ -670,9 +665,9 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "I've reviewed the new nutrition plan from Carla. It seems excellent, but the meal prep for breakfast and lunch looks like it will take 30-40 minutes a day. With my morning schedule, that is not a feasible time commitment. This is a logistical constraint.",
-        "topic": "Logistics",
-        "initiator": true,
-        "event_link_rationale": "This message introduces a new concern regarding the time commitment required for meal preparation, a logistical constraint not directly addressed in previous messages. While related to the nutrition plan discussed earlier, it represents a new aspect of the intervention plan's feasibility.",
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
         "linked_event_id": null
     },
     {
@@ -846,10 +841,10 @@
         "sender_name": "Ruby",
         "sender_role": "Concierge",
         "message": "Glad to hear it, Rohan. The goal of the travel protocols is to reduce friction and make the healthy choice the easy choice, even when you're on the road.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "linked_event_id": 76,
-        "event_link_rationale": "This message is a direct response to Rohan's message (id 76), which reported on his successful use of the travel protocols (hotel workout and restaurant guide)."
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 78,
@@ -857,10 +852,10 @@
         "sender_name": "Rachel",
         "sender_role": "PT",
         "message": "Checking in on the new exercise plan. It's been two weeks. Now that you're back in Singapore, I'm updating the program with a slight increase in weights for your core lifts. This principle of progressive overload is key to driving continued improvement. How is your body feeling?",
-        "topic": "Follow-up",
-        "initiator": true,
-        "linked_event_id": null,
-        "event_link_rationale": null
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 79,
@@ -868,10 +863,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "I feel the workouts, but the soreness is manageable. The \"Hotel Room\" version was a good save last week. I probably hit about 50% of the prescribed weights, but 100% of the sessions.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "linked_event_id": 78,
-        "event_link_rationale": "This message directly responds to message 78, which asked Rohan about his experience with the updated exercise plan and how his body felt.  Rohan's response provides feedback on his progress and experience with the workout modifications."
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 80,
@@ -881,8 +876,8 @@
         "message": "That's a perfect outcome for a travel week. It's about maintaining momentum. The new progressions are now live in your app.",
         "topic": "Follow-up",
         "initiator": false,
-        "linked_event_id": 79,
-        "event_link_rationale": "This message directly responds to message 79, which provided an update on Rohan's progress with the modified exercise plan during his travels. Rachel's message acknowledges Rohan's success in maintaining his workout routine despite travel constraints and confirms the updated workout plan's availability in the app."
+        "event_link_rationale": "This message directly responds to message ID 79, where Rohan Patel reports on his progress with the modified exercise plan during his travel week. Rachel's message in ID 80 acknowledges his success and confirms the update of his plan.",
+        "linked_event_id": 79
     },
     {
         "id": 81,
@@ -890,10 +885,10 @@
         "sender_name": "Advik",
         "sender_role": "Performance Scientist",
         "message": "Weekly Report: Rohan, the data from your New York trip was insightful. We saw the expected dip in HRV, but it recovered 15% faster than your previous trips. This is a strong signal that the consistent exercise and improved nutrition are making your system more resilient to travel-related stress.",
-        "topic": "Follow-up",
-        "initiator": true,
-        "linked_event_id": null,
-        "event_link_rationale": null
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 82,
@@ -901,10 +896,10 @@
         "sender_name": "Advik",
         "sender_role": "Performance Scientist",
         "message": "Good morning, Rohan. Your data from yesterday's 30-minute Zone 2 session looks very stable. Your heart rate stayed in the target zone, and your HRV showed a quick rebound post-exercise. This is a strong sign of adaptation. We'll progress to 35 minutes next week.",
-        "topic": "Follow-up",
-        "initiator": true,
-        "linked_event_id": null,
-        "event_link_rationale": null
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 83,
@@ -912,10 +907,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "Good. \"Routine\" and \"stable\" is what I'm aiming for.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "linked_event_id": 82,
-        "event_link_rationale": "This message is a direct response to message 82, which provided Rohan with a positive update on his exercise data. Rohan's message expresses satisfaction and alignment with the described stability and routine."
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 84,
@@ -923,10 +918,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "I was reading about the benefits of saunas for cardiovascular health and longevity. The gym in my building has one. Is this something I should incorporate into my routine?",
-        "topic": "Exercise",
-        "initiator": true,
-        "linked_event_id": null,
-        "event_link_rationale": null
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 85,
@@ -934,10 +929,10 @@
         "sender_name": "Dr. Warren",
         "sender_role": "Medical Strategist",
         "message": "An excellent, proactive question. Yes, there is good evidence that heat stress from saunas can improve cardiovascular function, potentially by improving blood vessel flexibility and lowering blood pressure. Given your goals, I would endorse using the sauna for 15-20 minutes on your non-workout days. Just be sure to hydrate thoroughly afterward.",
-        "topic": "Exercise",
+        "topic": "Uncategorized",
         "initiator": false,
-        "linked_event_id": 84,
-        "event_link_rationale": "This message directly responds to message 84, where Rohan asks about incorporating saunas into his exercise routine. Dr. Warren's message provides a medically informed answer, endorsing the use of saunas and providing specific recommendations for usage and hydration."
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 86,
@@ -945,10 +940,10 @@
         "sender_name": "Ruby",
         "sender_role": "Concierge",
         "message": "Rohan, a heads-up that your PA, Sarah, has added a 10-day business trip to New York and San Francisco to your calendar, starting next week. We will begin preparing a travel protocol for you.",
-        "topic": "Travel",
-        "initiator": true,
-        "linked_event_id": null,
-        "event_link_rationale": null
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 87,
@@ -956,10 +951,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "Landed in New York. The time difference is hitting hard. I have a client dinner tonight and had to skip my workout. The travel protocol is already under pressure.",
-        "topic": "Travel",
-        "initiator": true,
-        "linked_event_id": null,
-        "event_link_rationale": null
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 88,
@@ -967,10 +962,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "I tried to do the resistance workout this morning. The hotel gym was packed, and I had to cut it short to get to my first meeting. I also had a pastry at the breakfast meeting that was definitely not on Carla's plan. Adherence is proving extremely difficult.",
-        "topic": "Setback",
-        "initiator": true,
-        "linked_event_id": null,
-        "event_link_rationale": null
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 89,
@@ -978,10 +973,10 @@
         "sender_name": "Carla",
         "sender_role": "Nutritionist",
         "message": "Rohan, thank you for the honest update. Don't view this as a failure. The goal during high-stress travel is mitigation, not perfection. For your next client dinner, focus on a simple rule: prioritize protein and vegetables on your plate first. It's a small win that keeps us moving in the right direction.",
-        "topic": "Setback",
+        "topic": "Uncategorized",
         "initiator": false,
-        "linked_event_id": 88,
-        "event_link_rationale": "This message directly responds to message 88, where Rohan describes setbacks to his exercise and nutrition plans while traveling. Carla's message acknowledges Rohan's challenges, reframes them as mitigation rather than failure, and provides specific, actionable advice for future meals to improve adherence."
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 90,
@@ -989,10 +984,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "Now in San Francisco. I feel completely off schedule. I've missed two workouts this week and my diet has been inconsistent at best. I'd estimate my adherence to the plan is below 50%. It's frustrating to feel the progress slipping.",
-        "topic": "Setback",
-        "initiator": true,
-        "linked_event_id": null,
-        "event_link_rationale": null
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 91,
@@ -1000,10 +995,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "I saw an ad for a smart ring that tracks sleep in more detail than my Garmin. Is this something we should consider to get better data on my sleep issues, especially during travel?",
-        "topic": "Medical Decision",
-        "initiator": true,
-        "linked_event_id": null,
-        "event_link_rationale": null
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 92,
@@ -1011,10 +1006,10 @@
         "sender_name": "Advik",
         "sender_role": "Performance Scientist",
         "message": "We've evaluated those devices. While they provide excellent sleep data, your Garmin already gives us the key metrics we need: sleep duration, stages, and HRV. The issue isn't a lack of data; it's the size of the physiological stressor from the travel itself. Let's analyze the data when you get back; I suspect it will be very clear.",
-        "topic": "Medical Decision",
+        "topic": "Uncategorized",
         "initiator": false,
-        "linked_event_id": 91,
-        "event_link_rationale": "This message directly responds to message 91, where Rohan inquires about using a smart ring for more detailed sleep tracking during travel. Advik's message addresses Rohan's question, explaining that the current data from his Garmin is sufficient and that the travel stress itself is the primary factor affecting sleep, rather than the device's capabilities.  Advik proposes analyzing the data upon Rohan's return."
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 93,
@@ -1022,10 +1017,10 @@
         "sender_name": "Advik",
         "sender_role": "Performance Scientist",
         "message": "Rohan, welcome back. I've analyzed your wearable data from the US trip, and the results are stark. Your average sleep duration dropped by 95 minutes per night, and your nightly HRV decreased by an average of 28%. This is the most significant physiological stress event we have on record for you.",
-        "topic": "Follow-up",
-        "initiator": true,
-        "linked_event_id": null,
-        "event_link_rationale": null
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 94,
@@ -1055,8 +1050,8 @@
         "sender_name": "Rachel",
         "sender_role": "PT",
         "message": "Hi Rohan, it's time for your bi-weekly plan update. Given the travel feedback, I'm keeping the core lifts the same but adding a dedicated 10-minute \"Post-Flight Decompression\" routine. It's designed to be done in your hotel room immediately upon arrival to help alleviate stiffness and signal to your body that it's time to recover.",
-        "topic": "Follow-up",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -1121,9 +1116,9 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "I'm reviewing the new protocol. It's much more detailed. The pre-flight hydration schedule and the specific in-room workout options are good additions.",
-        "topic": "Follow-up",
+        "topic": "Travel",
         "initiator": false,
-        "event_link_rationale": "This message directly follows message 101, which informed Rohan of the new, improved \"Business Travel Protocol\" now available in his app.  Message 102 represents Rohan's feedback and review of that protocol, indicating a direct causal link.",
+        "event_link_rationale": "This message is a direct response to the detailed travel protocol sent to the member in message 101.  The member is actively reviewing and providing feedback on the new protocol's features.",
         "linked_event_id": 101
     },
     {
@@ -1132,10 +1127,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "Back from London. The new protocol was significantly more manageable. I would estimate I hit 80-90% adherence, which is a major improvement from the last US trip. The structure made a real difference.",
-        "topic": "Follow-up",
-        "initiator": true,
-        "event_link_rationale": "This message reports on the effectiveness of the new travel protocol implemented after the previous setback.  While chronologically distanced from the protocol's creation and implementation (messages 100, 101), it directly addresses the results of that intervention, making it a follow-up and a new initiator.",
-        "linked_event_id": 101
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 104,
@@ -1143,10 +1138,10 @@
         "sender_name": "Advik",
         "sender_role": "Performance Scientist",
         "message": "The data confirms your experience, Rohan. Your HRV recovered 30% faster on this trip compared to your last one, and your sleep duration only dropped by an average of 45 minutes, not 95. This is a successful intervention and proves we've found a more resilient strategy for you.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly references and analyzes the data from Rohan's recent trip to London, which was discussed in message 103. Advik's analysis quantifies the improvements in sleep and HRV recovery compared to the previous trip, directly responding to Rohan's report of 80-90% adherence to the new travel protocol.",
-        "linked_event_id": 103
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 105,
@@ -1154,10 +1149,10 @@
         "sender_name": "Neel",
         "sender_role": "Concierge Lead",
         "message": "Rohan, Neel here. This is exactly the process we aim for. We identified a friction point (travel), used data to understand its impact, and collaborated as a team to create a more effective plan. Excellent execution on your part.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message from Neel directly acknowledges and positively reinforces Rohan's report on the effectiveness of the new travel protocol (message 103) and the overall process of identifying and addressing the travel-related setback.  It summarizes the successful cycle of identifying a problem, gathering data, and improving the plan.",
-        "linked_event_id": 103
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 106,
@@ -1165,8 +1160,8 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "I've been reading about how high-intensity interval training (HIIT) can impact VO2 max. Is that something we should be incorporating more of, beyond the one session?",
-        "topic": "Exercise",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -1176,10 +1171,10 @@
         "sender_name": "Rachel",
         "sender_role": "PT",
         "message": "Great question. Yes, HIIT is a powerful tool for improving VO2 max. Now that your aerobic base is more established, we can start to integrate a second, shorter HIIT session per week. I'm updating your plan now. This will also have a positive effect on your insulin sensitivity, which supports the ApoB goal.",
-        "topic": "Exercise",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to message 106, where Rohan asks about incorporating more HIIT into his routine. Rachel's response addresses Rohan's question, providing a positive answer and outlining a plan to add a second HIIT session, connecting it to the overall ApoB goal.",
-        "linked_event_id": 106
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 108,
@@ -1187,8 +1182,8 @@
         "sender_name": "Ruby",
         "sender_role": "Concierge",
         "message": "Good morning Rohan. It's now been three months since your initial labs, which means it's time for your second quarterly comprehensive blood panel to check our progress. I'll coordinate with your PA, Sarah, to find a good time for the phlebotomist to visit next week.",
-        "topic": "Follow-up",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -1198,10 +1193,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "Acknowledged. Please schedule it for the morning as usual.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message is a direct response to message 108, where Ruby proposes scheduling Rohan's blood panel. Rohan's message acknowledges the proposal and provides a preference for the usual morning scheduling.",
-        "linked_event_id": 108
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 110,
@@ -1209,10 +1204,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "The blood draw is complete. What's the expected timeline for the analysis this time?",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message is a direct response to message ID 108, where Ruby scheduled a blood panel and indicated that she would coordinate with Rohan's PA.",
-        "linked_event_id": 108
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 111,
@@ -1220,10 +1215,10 @@
         "sender_name": "Ruby",
         "sender_role": "Concierge",
         "message": "Since we are primarily focused on the biomarker progress, the turnaround will be faster. Dr. Warren should have a full analysis for you within 5-7 business days.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to message 110, which inquired about the timeline for blood analysis results.",
-        "linked_event_id": 110
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 112,
@@ -1231,8 +1226,8 @@
         "sender_name": "Dr. Warren",
         "sender_role": "Medical Strategist",
         "message": "Rohan, we have the results of your second panel. I want to share the key numbers. The good news is that your ApoB has improved. It has come down from 115 to 102 mg/dL. This is a statistically significant change and shows that our lifestyle interventions are having a positive effect.",
-        "topic": "Follow-up",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -1242,10 +1237,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "That's good, but what is the optimal target? 102 still seems high based on what I've read.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly follows up on message 112, which provided Rohan with his ApoB results. Rohan is seeking further clarification on the optimal target range for ApoB.",
-        "linked_event_id": 112
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 114,
@@ -1253,10 +1248,10 @@
         "sender_name": "Dr. Warren",
         "sender_role": "Medical Strategist",
         "message": "You are correct to ask that. For someone with your family history, a truly optimal, risk-reducing target would be below 80 mg/dL, and ideally even lower. So, while we are moving in the right direction, the magnitude of the change suggests that lifestyle interventions alone may not be sufficient to get you to your goal. We will discuss the strategic implications of this as a team.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to Rohan's question in message 113 regarding the optimal ApoB target range. Dr. Warren provides a detailed explanation of the ideal range and suggests that lifestyle interventions alone may not be sufficient.",
-        "linked_event_id": 113
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 115,
@@ -1264,8 +1259,8 @@
         "sender_name": "Rachel",
         "sender_role": "PT",
         "message": "Hi Rohan, it's time for your bi-weekly exercise update. I've reviewed your progress. You're consistently hitting your targets on the new HIIT sessions. I'm now progressing your strength plan to Phase 2, which will introduce new movement patterns and increase the intensity to continue driving adaptation.",
-        "topic": "Follow-up",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -1275,8 +1270,8 @@
         "sender_name": "Neel",
         "sender_role": "Concierge Lead",
         "message": "Rohan, I've reviewed the lab results and the team's analysis. I want to frame this outcome properly: this is not a failure, but a crucial data point. You've shown incredible dedication, and the 13-point drop in ApoB is a real achievement from lifestyle changes. What this result clarifies for us is the probable strength of the genetic component of your cardiovascular risk. It allows us to make a more informed decision about the next steps.",
-        "topic": "Follow-up",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -1286,10 +1281,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "So what are the next steps? If my adherence is good and the plan is working, but the results are still not optimal, where do we go from here?",
-        "topic": "Follow-up",
-        "initiator": true,
-        "event_link_rationale": "This message is a direct follow-up to message 116, where Neel discussed Rohan's lab results and the need for a more informed decision about the next steps in his care plan. Rohan is explicitly asking about the next steps in the process.",
-        "linked_event_id": 116
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 118,
@@ -1297,10 +1292,10 @@
         "sender_name": "Dr. Warren",
         "sender_role": "Medical Strategist",
         "message": "This is the central question. The next step is to discuss adding another tool to our toolkit. Given the persistent elevation, the next logical, evidence-based step to consider is pharmacological intervention, such as a statin, to work in conjunction with your lifestyle efforts to aggressively lower the ApoB to an optimal level. I will prepare a detailed brief on this for us to discuss next week.",
-        "topic": "Medical Decision",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to message 117, where Rohan asks about the next steps in his care plan after achieving some but not optimal results despite good adherence. Dr. Warren proposes pharmacological intervention as the next step.",
-        "linked_event_id": 117
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 119,
@@ -1308,8 +1303,8 @@
         "sender_name": "Dr. Warren",
         "sender_role": "Medical Strategist",
         "message": "Rohan, following up on your latest results. The 13-point drop in your ApoB is a testament to your hard work. However, given your strong family history and the fact that your level is still 102 mg/dL, it's highly likely there is a significant genetic component to your lipid profile that lifestyle alone cannot fully overcome.",
-        "topic": "Follow-up",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -1319,10 +1314,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "So what does that mean? Are we at the limit of what lifestyle changes can achieve?",
-        "topic": "Medical Decision",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message is a direct response to message 119, where Dr. Warren explains that Rohan's ApoB levels, while improved, still suggest a significant genetic component that may not be fully addressed through lifestyle changes alone. Rohan's question directly asks for clarification on the implications of this assessment.",
-        "linked_event_id": 119
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 121,
@@ -1330,10 +1325,10 @@
         "sender_name": "Dr. Warren",
         "sender_role": "Medical Strategist",
         "message": "It means we should consider adding a pharmacological tool to our toolkit. I'd like to discuss the option of initiating a low-dose statin, such as Rosuvastatin. The evidence for statin therapy in aggressively lowering ApoB and reducing long-term cardiovascular risk in individuals with your specific profile is exceptionally strong. This would not be a replacement for your lifestyle efforts, but a powerful addition to them.",
-        "topic": "Medical Decision",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to Rohan's question in message 120, where he asks for clarification on whether lifestyle changes alone are sufficient to address his ApoB levels. Dr. Warren proposes pharmacological intervention (statin therapy) as a supplementary approach.",
-        "linked_event_id": 120
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 122,
@@ -1341,10 +1336,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "I've always been hesitant about long-term medication. What are the most common side effects, and what is the specific evidence you're referring to that makes this a compelling option for me?",
-        "topic": "Medical Decision",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly follows Dr. Warren's suggestion of initiating Rosuvastatin in message 121. Rohan expresses hesitation about long-term medication and requests more information on side effects and supporting evidence before making a decision.",
-        "linked_event_id": 121
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 123,
@@ -1352,10 +1347,10 @@
         "sender_name": "Dr. Warren",
         "sender_role": "Medical Strategist",
         "message": "A prudent question. The most commonly discussed side effect is muscle soreness (myalgia), though it affects a relatively small percentage of people and is often manageable by adjusting the dose or type of statin. We would start with a very low dose and monitor you closely. The evidence is compelling because multiple large-scale trials show that for every ~40 mg/dL reduction in LDL (and a corresponding drop in ApoB), the risk of a major cardiovascular event is reduced by about 20%. Given your genetics, this is the most powerful lever we have to change your long-term trajectory.",
-        "topic": "Medical Decision",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly answers Rohan's questions about side effects and evidence related to Rosuvastatin in message 122.  Dr. Warren addresses Rohan's concerns regarding side effects (myalgia) and provides a detailed explanation of the evidence supporting the use of statins to reduce cardiovascular risk, emphasizing the significant impact on ApoB reduction.",
-        "linked_event_id": 122
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 124,
@@ -1363,8 +1358,8 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "Team, I'm flying to the UK for the week. I'll be using the travel protocol. I'm still considering the information from Dr. Warren.",
-        "topic": "Travel",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -1374,10 +1369,10 @@
         "sender_name": "Ruby",
         "sender_role": "Concierge",
         "message": "Understood, Rohan. The protocol is ready in your app. Please let us know if you have any questions during your trip.",
-        "topic": "Travel",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message is a direct response to message 124, where Rohan Patel informs the team of his upcoming trip to the UK and his intention to use the travel protocol. Ruby's message confirms the protocol's availability and offers further assistance.",
-        "linked_event_id": 124
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 126,
@@ -1385,10 +1380,10 @@
         "sender_name": "Rachel",
         "sender_role": "PT",
         "message": "Hi Rohan, it's your bi-weekly exercise update. I've progressed your strength plan to increase the weight on your primary lifts by 5%. This continued stimulus is key. The plan in your app is updated. Let me know how the first session feels.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message is a follow-up to previous exercise updates, indicating a scheduled progress check and plan adjustment.  It continues the established pattern of bi-weekly check-ins regarding Rohan's exercise regimen.",
-        "linked_event_id": 115
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 127,
@@ -1396,8 +1391,8 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "I've been reading about Coenzyme Q10 (CoQ10) and how statins can deplete it. Is this something I should be concerned about?",
-        "topic": "Medical Decision",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -1407,10 +1402,10 @@
         "sender_name": "Carla",
         "sender_role": "Nutritionist",
         "message": "That's a very well-informed question. Yes, statins can lower CoQ10 levels. While routine supplementation isn't recommended for everyone, for highly active individuals like yourself, supplementing with CoQ10 can be a good supportive strategy to mitigate any potential muscle-related side effects. If you decide to proceed, we would add it to your protocol.",
-        "topic": "Nutrition",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to message 127, where Rohan Patel raises a concern about CoQ10 depletion due to statin use. Carla addresses Rohan's specific question regarding CoQ10 supplementation as a strategy to mitigate potential side effects of statins.",
-        "linked_event_id": 127
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 129,
@@ -1418,10 +1413,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "Dr. Warren, after reviewing the materials you sent and considering my long-term goals, I agree. The data is clear. Let's proceed with the statin therapy.",
-        "topic": "Medical Decision",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message is a direct response to message 123, where Dr. Warren provides detailed information on the benefits and side effects of Rosuvastatin. Rohan's message indicates his decision to proceed with the statin therapy after reviewing the provided materials and considering his long-term health goals.",
-        "linked_event_id": 123
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 130,
@@ -1429,10 +1424,10 @@
         "sender_name": "Dr. Warren",
         "sender_role": "Medical Strategist",
         "message": "Understood. This is a proactive and well-considered decision. I will send the prescription for Rosuvastatin 5mg to your preferred pharmacy in Singapore. We will now enter a new phase: integration and optimization.",
-        "topic": "Medical Decision",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly follows Rohan's decision in message 129 to proceed with statin therapy. Dr. Warren acknowledges the decision, confirms the prescription process, and indicates a transition to the next phase of care.",
-        "linked_event_id": 129
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 131,
@@ -1440,10 +1435,10 @@
         "sender_name": "Ruby",
         "sender_role": "Concierge",
         "message": "I will coordinate with the pharmacy to ensure the prescription is ready for you and confirm once it's available for pickup. I've also added CoQ10 to your recurring supplement order, as per Carla's recommendation.",
-        "topic": "Logistics",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message is a direct follow-up to message 130, where Dr. Warren confirms the prescription for Rosuvastatin and indicates a transition to the integration and optimization phase. Ruby's message confirms the logistical steps involved in fulfilling the prescription and mentions the addition of CoQ10 to Rohan's supplement order, which was previously discussed in messages 127 and 128.",
-        "linked_event_id": 130
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 132,
@@ -1451,10 +1446,10 @@
         "sender_name": "Carla",
         "sender_role": "Nutritionist",
         "message": "Hi Rohan, now that you're starting the new medication, it's important to know that the nutrition plan remains the cornerstone of your health. A diet rich in anti-inflammatory foods, like leafy greens and berries, can be particularly supportive.",
-        "topic": "Nutrition",
-        "initiator": true,
-        "event_link_rationale": "This message follows the initiation of statin therapy (messages 129 and 130). Carla's message emphasizes the continued importance of nutrition alongside the medication, suggesting a new phase of nutritional guidance related to medication integration.",
-        "linked_event_id": 130
+        "topic": "Uncategorized",
+        "initiator": false,
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 133,
@@ -1462,10 +1457,10 @@
         "sender_name": "Rachel",
         "sender_role": "PT",
         "message": "Rohan, as you begin the medication, please be extra mindful of how your body feels during and after workouts. Report any unusual or persistent muscle soreness to me immediately. We can adjust your training intensity if needed, but for now, the plan remains the same.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message is a preventative measure directly linked to the initiation of statin therapy (messages 129 and 130) and the potential side effect of myalgia discussed in message 123. Rachel proactively advises Rohan to monitor his muscle soreness during workouts, aligning with the potential side effects of the medication.",
-        "linked_event_id": 130
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 134,
@@ -1473,10 +1468,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "Acknowledged. I'll be vigilant.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message is a brief acknowledgement and affirmation of Rohan's commitment to follow Rachel's instructions in message 133 regarding monitoring muscle soreness during workouts after starting medication.",
-        "linked_event_id": 133
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 135,
@@ -1484,10 +1479,10 @@
         "sender_name": "Advik",
         "sender_role": "Performance Scientist",
         "message": "Weekly Report: Rohan, your HRV has remained stable, showing good resilience. As you start the new medication, we will be monitoring your recovery data very closely to ensure your system is adapting well to both the training and the new therapy.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message is a follow-up report on Rohan's health metrics, specifically mentioning the commencement of his new medication (Rosuvastatin, initiated in message 130). Advik's message directly links to the ongoing monitoring of Rohan's health following the introduction of the statin therapy, showing a proactive approach to preventative healthcare.",
-        "linked_event_id": 130
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 136,
@@ -1506,10 +1501,10 @@
         "sender_name": "Dr. Warren",
         "sender_role": "Medical Strategist",
         "message": "Thank you for the update. Mild, transient muscle ache is not uncommon during the initial adaptation period. The fact that it has subsided is a very positive sign. Please continue to monitor and report any changes.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to message 136, where Rohan Patel reports mild muscle ache after starting Rosuvastatin, and the subsequent subsidence of the ache. Dr. Warren acknowledges the update, provides context by mentioning that mild muscle ache is a common initial side effect, and instructs Rohan to continue monitoring and reporting.",
-        "linked_event_id": 136
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 138,
@@ -1517,8 +1512,8 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "I have a high-stakes negotiation next week. I need my cognitive function to be at its absolute peak. What can we do to prepare?",
-        "topic": "Member Query",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -1539,8 +1534,8 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "Team, I'm off to Jakarta for the week. I have the new medication with me. Any specific advice for managing it with the time zone change?",
-        "topic": "Travel",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -1550,10 +1545,10 @@
         "sender_name": "Dr. Warren",
         "sender_role": "Medical Strategist",
         "message": "For a small time zone shift like Jakarta, consistency is key. I recommend you continue to take the medication at your usual Singapore time (e.g., before bed) to maintain a steady level in your system.",
-        "topic": "Follow-up",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to message 140, where Rohan Patel asks for advice on managing his medication while traveling to Jakarta. Dr. Warren's message provides specific guidance on maintaining medication consistency despite the time zone change.",
-        "linked_event_id": 140
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 142,
@@ -1561,8 +1556,8 @@
         "sender_name": "Rachel",
         "sender_role": "PT",
         "message": "Hi Rohan, it's your bi-weekly exercise update. I'm keeping your core strength program the same but progressing your aerobic work. I'm changing one of your Zone 2 sessions to a HIIT session on the bike. This will further improve insulin sensitivity and support our cardiovascular goals. The update is live in your app.",
-        "topic": "Exercise",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -1572,8 +1567,8 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "The Jakarta trip went smoothly. The new HIIT workout was challenging but manageable. Now that we have an aggressive plan for my ApoB, I want to think about my other long-term goal: proactive cancer screening. What is the best-in-class approach?",
-        "topic": "Medical Decision",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -1583,10 +1578,10 @@
         "sender_name": "Neel",
         "sender_role": "Concierge Lead",
         "message": "An excellent forward-thinking question. This is a key topic in proactive health. For clients focused on longevity, we recommend a multi-modal approach. This typically includes a radiation-free full-body MRI scan for solid tumors and advanced liquid biopsy tests that can detect cancer signals in the blood.",
-        "topic": "Medical Decision",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to message 143, where Rohan Patel inquires about the best approach for proactive cancer screening. Neel's message provides a detailed answer, suggesting a multi-modal approach including specific medical tests.",
-        "linked_event_id": 143
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 145,
@@ -1594,10 +1589,10 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "Look into it. Find the best facilities and let's plan to schedule these in the next quarter.",
-        "topic": "Medical Decision",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message is a direct follow-up to message 144, where Neel provides Rohan with information on proactive cancer screening options. Rohan's message indicates his acceptance of the recommendation and requests further action.",
-        "linked_event_id": 144
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 146,
@@ -1605,10 +1600,10 @@
         "sender_name": "Ruby",
         "sender_role": "Concierge",
         "message": "Understood. I will log 3 hours of research and vetting time for both full-body MRI and liquid biopsy providers and will present you with the options and our rationale next week.",
-        "topic": "Medical Decision",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message is a direct response to message 145, where Rohan Patel requests Ruby to research and schedule proactive cancer screening. Ruby's message confirms her understanding and outlines the next steps.",
-        "linked_event_id": 145
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 147,
@@ -1616,8 +1611,8 @@
         "sender_name": "Advik",
         "sender_role": "Performance Scientist",
         "message": "Weekly Report: Rohan, your recovery scores have remained consistently high, even with the introduction of HIIT and the new medication. This is a powerful indicator that your body is adapting well. Your resting heart rate has also shown a steady downward trend, now averaging 4 bpm lower than when we started. Your cardiovascular system is becoming more efficient.",
-        "topic": "Follow-up",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -1627,8 +1622,8 @@
         "sender_name": "Rohan Patel",
         "sender_role": "Member",
         "message": "I'm starting to look for a piano teacher. I see this as part of my long-term cognitive health investment.",
-        "topic": "Medical Decision",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     },
@@ -1638,10 +1633,10 @@
         "sender_name": "Dr. Warren",
         "sender_role": "Medical Strategist",
         "message": "From a medical standpoint, this is an excellent intervention for cognitive longevity. Learning a complex skill like piano engages multiple domains of the brain simultaneously\u2014auditory processing, motor skills, and memory. We fully endorse this as a component of your long-term health plan.",
-        "topic": "Medical Decision",
+        "topic": "Uncategorized",
         "initiator": false,
-        "event_link_rationale": "This message directly responds to message 148 where Rohan Patel mentions his plan to learn piano for cognitive health. Dr. Warren's message provides medical support for Rohan's decision.",
-        "linked_event_id": 148
+        "event_link_rationale": null,
+        "linked_event_id": null
     },
     {
         "id": 150,
@@ -1649,8 +1644,8 @@
         "sender_name": "Neel",
         "sender_role": "Concierge Lead",
         "message": "Rohan, as we close out this month, I want to highlight the strategic shift. By addressing your most significant genetic risk factor (ApoB) head-on, we've established a new, more protected baseline. This frees us up to focus on the next layers of optimization: advanced early detection and cognitive enhancement. We are now moving from defense to offense in managing your long-term health. We look forward to seeing the impact of the new therapy on your next blood panel.",
-        "topic": "Follow-up",
-        "initiator": true,
+        "topic": "Uncategorized",
+        "initiator": false,
         "event_link_rationale": null,
         "linked_event_id": null
     }
