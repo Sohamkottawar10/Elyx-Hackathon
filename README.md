@@ -1,6 +1,6 @@
 # Elyx-Hackathon 2025
 
-Functionalities used: HTML, CSS, JavaScript, Flask.
+Functionalities used: HTML, CSS, Flask.
 
 How to run?
 First, install the dependencies from requirements.txt
