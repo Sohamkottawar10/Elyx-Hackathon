@@ -3,7 +3,7 @@ import os
 import google.generativeai as genai
 import time
 
-GOOGLE_API_KEY = 'AIzaSyDxggMW9iBYvY02t1MgchGoqTIEJg510eg'
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 INPUT_FILE = 'parsed_chat_log.json'
 OUTPUT_FILE = 'enriched_chat_log.json'
